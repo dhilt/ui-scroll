@@ -40,7 +40,7 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "0.1100.5",
-    "@angular/cli": "11.0.5",
+    "@angular/cli": "^11.0.6",
     "@angular/compiler": "11.0.5",
     "@angular/compiler-cli": "11.0.5",
     "@rollup/plugin-node-resolve": "^7.1.3",
