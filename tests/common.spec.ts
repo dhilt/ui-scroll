@@ -1,4 +1,4 @@
-import { async, ComponentFixture } from '@angular/core/testing';
+import { waitForAsync, ComponentFixture } from '@angular/core/testing';
 import { DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
@@ -19,7 +19,7 @@ describe('Component', () => {
   let misc: Misc;
   let reconfigure = true;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     if (!reconfigure) {
       return;
     }
@@ -357,7 +357,7 @@ describe('Multiple Instances', () => {
 
   describe('Initialization', () => {
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
       if (!reconfigure) {
         return;
       }

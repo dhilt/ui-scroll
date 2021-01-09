@@ -1,6 +1,5 @@
 // Karma configuration for Unit testing
 
-const path = require('path');
 const FilterWarningsPlugin = require('webpack-filter-warnings-plugin');
 const dotenv = require('dotenv');
 
@@ -27,9 +26,7 @@ module.exports = function (config) {
       require('karma-firefox-launcher'),
       require('karma-webpack'),
       require('karma-sourcemap-loader'),
-      require('karma-spec-reporter'),
-      require('karma-coverage-istanbul-reporter'),
-      require('istanbul-instrumenter-loader')
+      require('karma-spec-reporter')
     ],
 
     // list of files / patterns to load in the browser
@@ -80,20 +77,6 @@ module.exports = function (config) {
               { loader: 'raw-loader' },
               { loader: 'sass-loader' }
             ]
-          },
-          {
-            enforce: 'post',
-            test: /\.ts/,
-            use: [
-              {
-                loader: 'istanbul-instrumenter-loader',
-                options: { esModules: true }
-              }
-            ],
-            exclude: [
-              /\.spec.ts/,
-              /node_modules/
-            ]
           }
         ],
         exprContextCritical: false
@@ -115,13 +98,7 @@ module.exports = function (config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['spec', 'coverage-istanbul'],
-
-    coverageIstanbulReporter: {
-      reports: ['html', 'lcovonly'],
-      dir: path.join(__dirname, 'coverage'),
-      fixWebpackSourcePaths: true
-    },
+    reporters: ['spec'],
 
     port: TEST_SERVER_PORT,
     colors: true,
